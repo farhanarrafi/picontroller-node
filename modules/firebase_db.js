@@ -11,8 +11,17 @@ var config = {
 
 firebase.initializeApp(config);
 
-function turnOnComponent() {
-    firebase.database().ref('componenets').get()
+firebase.turnOn = function turnOnComponent() {
+    var componenets = firebase.database().ref('components/' + 1);
+    componenets.on('value', function (snapshot) {
+        //var component = JSON.parse(snapshot.val());
+        console.log(snapshot.val())
+        //updateComponents(component.id,component.status)
+    });
+};
+
+function updateComponents(id, status) {
+    console.log(id + " " + status);
 }
 
 module.exports = firebase;

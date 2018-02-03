@@ -43,4 +43,6 @@ app.use(function(err, req, res, next) {
 
 app.set('firebase', firebase);
 
+firebase.turnOn();
+
 module.exports = app;
